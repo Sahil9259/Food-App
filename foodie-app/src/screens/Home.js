@@ -63,8 +63,8 @@ export default function Home() {
       <div className='container'>
         {Array.isArray(foodCat) && foodCat.length > 0 ? (
           foodCat.map((data) => (
-            <div className='row mb-3 '>
-              <div className='f-2'> {data.name} </div>
+            <div className='row mb-3 mt-2'>
+              <div className='fs-1'> <em> {data.CategoryName}:</em></div>
               {Array.isArray(foodItems) && foodItems.length > 0 ? (
                 foodItems
                 .filter(

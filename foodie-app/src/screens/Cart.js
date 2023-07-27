@@ -7,7 +7,7 @@ export default function Cart() {
   if (data.length === 0) {
     return (
       <div>
-        <div className='m-5 w-100 text-center fs-3'>The Cart is Empty!</div>
+        <div className='container m-5 w-100 text-center text-light fs-2'>The Cart is Empty!</div>
       </div>
     )
   }
@@ -42,7 +42,7 @@ export default function Cart() {
   return (
     <div>
 
-      {console.log(data)}
+      {/* {console.log(data)} */}
       <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md text-light' >
         <table className='table '>
           <thead className=' text-light fs-4'>
