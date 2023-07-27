@@ -20,7 +20,7 @@ export default function Login() {
     const json = await response.json()
     console.log(json);
     if (json.success) {
-      //save the auth toke to local storage and redirect
+
       localStorage.setItem('userEmail', credentials.email)
       localStorage.setItem('token', json.authToken)
       navigate("/");
@@ -41,7 +41,7 @@ export default function Login() {
         <Navbar />
       </div>
       <div className='container'>
-        <form className='w-50 m-auto mt-5 border bg-dark border-success rounded' onSubmit={handleSubmit}>
+        <form className='w-50 m-auto mt-5 border bg-dark text-light border-success rounded' onSubmit={handleSubmit}>
           <div className="m-3">
             <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
             <input type="email" className="form-control" name='email' value={credentials.email} onChange={onChange} aria-describedby="emailHelp" />

@@ -47,7 +47,7 @@ export default function Card(props) {
         return
       }
       else if (food.size !== size) {
-        await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size,img: props.ImgSrc })
+        await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size, img: props.ImgSrc })
         console.log("Size different so simply ADD one more to the list")
         return
       }
@@ -87,11 +87,20 @@ export default function Card(props) {
                   <option key={i + 1} value={i + 1}>{i + 1}</option>)
               })}
             </select>
-            <select className="m-2 h-100 w-20 bg-success text-black rounded" style={{ select: "#FF0000" }} ref={priceRef} onClick={handleClick} onChange={handleOptions}>
-              {priceOptions.map((i) => {
-                return <option key={i} value={i}>{i}</option>
-              })}
+            <select
+              className="m-2 h-100 w-20 bg-success text-black rounded"
+              style={{ backgroundColor: "#FF0000" }}
+              ref={priceRef}
+              onClick={handleClick}
+              onChange={handleOptions}
+            >
+              {priceOptions.map((i) => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
             </select>
+
             <div className=' d-inline ms-2 h-100 w-20 fs-5' >
               ₹{finalPrice}/-
             </div>

@@ -9,7 +9,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-// import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar'; 
 import Login from './screens/Login';
 import Signup from './screens/Signup';
 import { CartProvider } from './components/ContextReducer';

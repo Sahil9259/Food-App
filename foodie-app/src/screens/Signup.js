@@ -71,7 +71,7 @@ export default function Signup() {
       </div>
 
         <div className='container' >
-          <form className='w-50 m-auto mt-5 border bg-dark border-success rounded' onSubmit={handleSubmit}>
+          <form className='w-50 m-auto mt-5 border bg-dark text-light border-success rounded' onSubmit={handleSubmit}>
             <div className="m-3">
               <label htmlFor="name" className="form-label">Name</label>
               <input type="text" className="form-control" name='name' value={credentials.name} onChange={onChange} aria-describedby="emailHelp" />

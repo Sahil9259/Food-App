@@ -15,8 +15,8 @@ export default function MyOrder() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body:JSON.stringify({
-                email:localStorage.getItem('userEmail')
+            body: JSON.stringify({
+                email: localStorage.getItem('userEmail')
             })
         }).then(async (res) => {
             let response = await res.json()
@@ -76,24 +76,16 @@ export default function MyOrder() {
                                                             </div>
 
                                                         </div>
-
-
-
                                                     }
-
                                                 </div>
                                             )
                                         })
-
                                     )
                                 }) : ""
                         )
                     }) : ""}
                 </div>
-
-
             </div>
-
             <Footer />
         </div>
     )

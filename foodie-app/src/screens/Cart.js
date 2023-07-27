@@ -43,9 +43,9 @@ export default function Cart() {
     <div>
 
       {console.log(data)}
-      <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md' >
-        <table className='table table-hover '>
-          <thead className=' text-success fs-4'>
+      <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md text-light' >
+        <table className='table '>
+          <thead className=' text-light fs-4'>
             <tr>
               <th scope='col' >#</th>
               <th scope='col' >Name</th>
@@ -55,21 +55,23 @@ export default function Cart() {
               <th scope='col' ></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className=' text-light fs-4'>
             {data.map((food, index) => (
+              
               <tr>
                 <th scope='row' >{index + 1}</th>
                 <td >{food.name}</td>
                 <td>{food.qty}</td>
                 <td>{food.size}</td>
                 <td>{food.price}</td>
-                <td ><button type="button" className="btn p-0"><Delete onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td></tr>
+                <td ><button type="button" className="btn p-0 text-light"><Delete onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td></tr>
             ))}
+
           </tbody>
         </table>
         <div><h1 className='fs-2'>Total Price: {totalPrice}/-</h1></div>
         <div>
-          <button className='btn bg-success mt-5 ' onClick={handleCheckOut} > Check Out </button>
+          <button className='btn bg-light mt-5 ' onClick={handleCheckOut} > Check Out </button>
         </div>
       </div>
 
