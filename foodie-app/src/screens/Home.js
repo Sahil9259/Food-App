@@ -7,16 +7,14 @@ export default function Home() {
   const [foodItems, setFoodItems] = useState([]);
   const [search, setSearch] = useState('');
   const loadFoodItems = async () => {
-    let response = await fetch("http://localhost:5000/api/auth/foodData", {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
+    let response = await fetch("https://foodie-app-mmit.onrender.com/api/auth/foodData", {
+      
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       }
     });
     response = await response.json()
-    // console.log(response[1][0].CategoryName)
     setFoodItems(response[0])
     setFoodCat(response[1])
   }
@@ -92,8 +90,6 @@ export default function Home() {
           ""
         )}
       </div>
-
-
       <Footer />
     </div>
   )
