@@ -2,8 +2,12 @@
 
 import React, { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
-import Badge from "@material-ui/core/Badge";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+
+
+import Button from '@mui/material/Button';
+import Badge from '@mui/material/Badge';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 import { useCart } from './ContextReducer';
 import Modal from '../Modal';
 import Cart from '../screens/Cart';
@@ -58,7 +62,7 @@ export default function Navbar(props) {
 
                                 {cartView ? <Modal onClose={() => setCartView(false)}><Cart></Cart></Modal> : ""}
 
-                                <button onClick={handleLogout} className="btn bg-white text-success" >Logout</button></div>}
+                                <Button onClick={handleLogout} className="btn bg-white text-success" >Logout</Button></div>}
                     </div>
                 </div>
             </nav>
