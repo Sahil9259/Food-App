@@ -101,7 +101,6 @@ router.post('/getuser', fetch, async (req, res) => {
 
     }
 })
-// Get logged in User details, Login Required.
 router.post('/getlocation', async (req, res) => {
     try {
         let lat = req.body.latlong.lat
