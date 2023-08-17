@@ -1,31 +1,22 @@
-/* eslint-disable react/jsx-no-undef */
-
 import React, { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
-
-
 import Button from '@mui/material/Button';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
 import { useCart } from './ContextReducer';
 import Modal from '../Modal';
 import Cart from '../screens/Cart';
 export default function Navbar(props) {
-
     const [cartView, setCartView] = useState(false)
     localStorage.setItem('temp', "first")
     let navigate = useNavigate();
     const handleLogout = () => {
         localStorage.removeItem('token')
-
         navigate("/login")
     }
-
     const loadCart = () => {
         setCartView(true)
     }
-
     const items = useCart();
     return (
         <div>
@@ -39,7 +30,7 @@ export default function Navbar(props) {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link fs-5 mx-3 active" aria-current="page" to="/">Home</Link>  {/* index.css - nav-link color white */}
+                                <Link className="nav-link fs-5 mx-3 active fas fa-home" aria-current="page" to="/"></Link>  {/* index.css - nav-link color white */}
                             </li>
                             {(localStorage.getItem("token")) ?
                                 <li className="nav-item">
@@ -48,8 +39,8 @@ export default function Navbar(props) {
                         </ul>
                         {(!localStorage.getItem("token")) ?
                             <form className="d-flex">
-                                <Link className="btn bg-white text-success mx-1 " to="/login">Login</Link>
-                                <Link className="btn bg-white text-success mx-1" to="/signup">Signup</Link>
+                                <Link className="btn bg-white text-success mx-1 fa fa-sign-in-alt " to="/login">Login</Link>
+                                <Link className="btn bg-white text-success mx-1 fa fa-sign-in-alt " to="/signup">Signup</Link>
                             </form> :
                             <div>
 
@@ -62,7 +53,7 @@ export default function Navbar(props) {
 
                                 {cartView ? <Modal onClose={() => setCartView(false)}><Cart></Cart></Modal> : ""}
 
-                                <Button onClick={handleLogout} className="btn bg-white text-success" >Logout</Button></div>}
+                                <Button onClick={handleLogout} className="btn bg-white text-success fa fa-sign-out-alt" >Logout</Button></div>}
                     </div>
                 </div>
             </nav>

@@ -8,7 +8,7 @@ export default function Home() {
   const [search, setSearch] = useState('');
   const loadFoodItems = async () => {
     let response = await fetch("https://foodie-app-mmit.onrender.com/api/auth/foodData", {
-      
+
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -29,8 +29,12 @@ export default function Home() {
         <Navbar />
       </div>
       <div>
-        <div id="carouselExampleFade" className="carousel slide carousel-fade " data-bs-ride="carousel">
-
+        <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+          <ol className="carousel-indicators">
+            {/* <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> */}
+          </ol>
           <div className="carousel-inner " id='carousel'>
             <div className=" carousel-caption  " style={{ zIndex: "9" }}>
               <div className=" d-flex justify-content-center">  {/* justify-content-center, copy this <form> from navbar for search box */}
@@ -39,23 +43,25 @@ export default function Home() {
               </div>
             </div>
             <div className="carousel-item active" >
-              <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100  " style={{ filter: "brightness(30%)" }} alt="..." />
+              <img src="https://source.unsplash.com/random/900x700/?caffe" className="d-block w-100  " style={{ filter: "brightness(30%)" }} alt="..." />
             </div>
             <div className="carousel-item">
-              <img src="https://source.unsplash.com/random/900x700/?pastry" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
+              <img src="https://source.unsplash.com/random/900x700/?starter" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
             </div>
             <div className="carousel-item">
-              <img src="https://source.unsplash.com/random/900x700/?barbeque" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
+              <img src="https://source.unsplash.com/random/900x700/?pizza" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
             </div>
           </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
-          </button>
+          {/* <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel"> */}
+            <button className="carousel-control-prev" type="button" data-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="sr-only">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="sr-only">Next</span>
+            </button>
+          {/* </div> */}
         </div>
       </div>
       <div className='container'>
@@ -65,10 +71,10 @@ export default function Home() {
               <div className='fs-1'> <em> {data.CategoryName}:</em></div>
               {Array.isArray(foodItems) && foodItems.length > 0 ? (
                 foodItems
-                .filter(
-                  (items) =>
-                  items.CategoryName === data.CategoryName &&
-                  items.name.toLowerCase().includes(search.toLowerCase())
+                  .filter(
+                    (items) =>
+                      items.CategoryName === data.CategoryName &&
+                      items.name.toLowerCase().includes(search.toLowerCase())
                   )
                   .map((filterItems) => (
                     <div key={filterItems.id} className='col-12 col-md-6 col-lg-4'>
