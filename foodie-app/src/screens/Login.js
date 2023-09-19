@@ -23,7 +23,7 @@ export default function Login() {
 
       localStorage.setItem('userEmail', credentials.email)
       localStorage.setItem('token', json.authToken)
-      navigate("/");
+      navigate("/home");
 
     }
     else {
@@ -52,7 +52,7 @@ export default function Login() {
             <input type="password" className="form-control" value={credentials.password} onChange={onChange} name='password' />
           </div>
           <button type="submit" className="m-3 btn btn-success">Submit</button>
-          <Link to="/signup" className="m-3 mx-1 btn btn-danger">New User</Link>
+          <Link to="/" className="m-3 mx-1 btn btn-danger">New User</Link>
         </form>
 
       </div>
